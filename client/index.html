@@ -1,0 +1,21 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+<script>
+    $(() => {
+        var socket = io.connect("http://localhost:3000")
+
+        console.log( socket )
+
+        socket.on('connect', () => {
+        })
+
+        socket.on("turn", (respond) => {
+            respond({action: "left"})
+        })
+
+        socket.on('disconnect', () => {
+            console.log('The client has disconnected!')
+        })
+    })
+</script>
